@@ -1,0 +1,14 @@
+ion-content{
+    --background: #2f2f2f;
+}
+
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+ion-button{
+    color: dark;
+    text-transform: initial;
+}
