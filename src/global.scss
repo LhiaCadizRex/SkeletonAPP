@@ -35,3 +35,38 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+/* 
+#8f867e naranja apagado
+#ffffff blanco
+#fcc931 naranja
+#41483c verde oscuro apagado
+#ccd8c7 verde claro */
+
+ion-app, ion-content {
+    --background: url('../src/assets/img/background.png') no-repeat center center / cover;
+ }
+
+ ion-header {
+    --background: transparent; 
+    --ion-toolbar-background: transparent; 
+    --ion-toolbar-border-color: transparent;
+  }
+
+  ion-header,
+  ion-toolbar,
+  ion-buttons {
+    color: #41483c; 
+  }
+
+
+  ion-header,
+ ion-toolbar {
+  --ion-toolbar-border-color: transparent; /* Quita el borde */
+  --background: transparent;               /* Hace transparente la barra */ 
+ }
+ 
+ .header-md{
+    -webkit-box-shadow: none !important; 
+    box-shadow: none !important;
+  }
