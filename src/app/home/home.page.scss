@@ -31,13 +31,15 @@
   align-items: center;
   flex-direction: column;
   text-align: center;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
+  color: #41483c;
+  font-family: Franklin Gothic Medium;
 }
 
-.person{
+.user-avatar {
   width: 100px;
   height: 100px;
-  border-radius: 50%;
+  border-radius: 50%; 
 }
 
 ion-card {

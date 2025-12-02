@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard-guard';
 
 const routes: Routes = [
   {
@@ -13,7 +14,8 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    canActivate:[AuthGuard]
   },
   {
     path: 'registro',
@@ -21,15 +23,22 @@ const routes: Routes = [
   },
   {
     path: 'perfil',
-    loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule)
+    loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule),
+    canActivate:[AuthGuard]
   },
   {
     path: 'viajes-det',
-    loadChildren: () => import('./pages/viajes-det/viajes-det.module').then( m => m.ViajesDetPageModule)
+    loadChildren: () => import('./pages/viajes-det/viajes-det.module').then( m => m.ViajesDetPageModule),
+    canActivate:[AuthGuard]
   },
   {
     path: 'viajes-form',
-    loadChildren: () => import('./pages/viajes-form/viajes-form.module').then( m => m.ViajesFormPageModule)
+    loadChildren: () => import('./pages/viajes-form/viajes-form.module').then( m => m.ViajesFormPageModule),
+    canActivate:[AuthGuard]
+  },
+  {
+    path: '**',
+    loadChildren: () => import('./pages/error404/error404.module').then( m => m.Error404PageModule)
   },
 ];
 

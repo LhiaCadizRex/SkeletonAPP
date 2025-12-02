@@ -9,10 +9,22 @@ import { MenuController } from '@ionic/angular';
 })
 export class ViajesFormPage implements OnInit {
 
+  viaje = {
+    nombre: '',
+    destino: '',
+    tipo: '',
+    presupuesto: null,
+    fechaInicio: new Date().toISOString()
+  };
+
   constructor(private menu: MenuController, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.menu.close('mainMenu');
+  }
+
+  crearViaje() {
+    console.log('Viaje creado:', this.viaje);
   }
 
 }

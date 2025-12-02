@@ -23,7 +23,7 @@
             [(ngModel)]="password" name="password"></ion-input>
         </ion-item>
         <!--BOTONES LOGIN-->
-        <ion-button color="dark" fill="clear" size="full" type="reset">Limpiar correo/contraseña</ion-button>
+        <ion-button color="dark" fill="clear" size="full" (click)="reset()">Olvidaste tu contraseña</ion-button>
         <ion-button color="dark" shape="round" size="full" (click)="login()">Entrar</ion-button>
         <ion-button color="dark" fill="outline" shape="round" size="full" (click)="registro()">Registrarse</ion-button>
       </ion-card-content>

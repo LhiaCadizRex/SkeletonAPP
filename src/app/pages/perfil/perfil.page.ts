@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router'; 
-import { MenuController } from '@ionic/angular'; 
+import { ActivatedRoute } from '@angular/router';
+import { MenuController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-perfil',
@@ -10,12 +11,22 @@ import { MenuController } from '@ionic/angular';
 })
 export class PerfilPage implements OnInit {
 
+  nombre: string = '';
+  apellido: string = '';
+  usuario: string = '';
+  email: string = '';
+  telefono: string = '';
 
-  constructor(private menu: MenuController, private route: ActivatedRoute) {
-  
+
+  constructor(private menu: MenuController, private route: ActivatedRoute, private navCtrl: NavController) {
+
   }
 
   ngOnInit() {
     this.menu.close('mainMenu');
+  }
+
+  editarPerfil() {
+    this.navCtrl.navigateForward('/registro');
   }
 }

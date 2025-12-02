@@ -9,16 +9,16 @@
 
 <ion-content [fullscreen]="true">
   <div class="user-info">
-    <ion-icon name="person"></ion-icon>
-    <h2> {{ email }} </h2>
+    <img src="../../assets/img/avatar.png" alt="User Avatar" class="user-avatar" />
+  <h3> {{ email }} </h3>
   </div>
 
   <div class="home-info">
 
     <ion-card>
-      <img src="../../assets/img/viajesForm.jpg" alt="FormularioViajes"/>
+      <img src="../../assets/img/viajesForm.jpg" alt="FormularioViajes" />
       <ion-card-header>
-        <ion-button fill="clear" routerLink="/viajesForm">Nuevo Viaje</ion-button>
+        <ion-button fill="clear" routerLink="/viajes-form">Nuevo Viaje</ion-button>
       </ion-card-header>
       <ion-card-content>
         Formulario de ingreso para nuevos viajes.
@@ -30,7 +30,7 @@
     <ion-card>
       <img src="../../assets/img/viajesDet.jpg" alt="DetalleViajes" />
       <ion-card-header>
-        <ion-button fill="clear" routerLink="/viajesDet">Tus Viajes</ion-button>
+        <ion-button fill="clear" routerLink="/viajes-det">Tus Viajes</ion-button>
       </ion-card-header>
       <ion-card-content>
         Revisa todos los viajes que has hecho.

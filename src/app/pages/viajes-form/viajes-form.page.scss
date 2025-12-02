@@ -1,0 +1,45 @@
+ion-header{
+  --background: transparent;
+}
+ion-toolbar{
+  --background: transparent;
+  width: 100px;
+  height: 100px;
+}
+
+ion-title {
+  --background: transparent;
+  background: transparent;
+  color: #41483c;
+}
+
+.center-title{
+    margin: 0 auto;
+    text-align: center;
+}
+
+ion-card {
+  --background: transparent;
+}
+
+ion-item {
+  --background: transparent;
+  --border-color: #8f867e;
+  
+  ion-label {
+    color: #41483c;
+  }
+  
+  ion-input, ion-select, ion-datetime {
+    background: transparent;
+    color: #41483c;
+  }
+}
+
+ion-button {
+  --background: #41483c;
+  --color: #ccd8c7;
+  --border-radius: 10px;
+  font-weight: bold;
+  margin-top: 20px;
+}

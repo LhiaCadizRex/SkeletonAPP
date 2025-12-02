@@ -1,9 +1,8 @@
 ion-card {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color:#ccd8c7;
     backdrop-filter: blur(5px);
     box-shadow: none;
-    border-radius: 5%;
-    width: 90%;
+    border-radius: 2%;
 }
 
 
@@ -15,19 +14,19 @@ ion-card-title {
 ion-card ion-input {
     --background: transparent;
     color: #41483c;
-    /*color texto*/
+    
 }
 
 ion-card input {
     background-color: transparent;
     color: #41483c;
-    /*color texto*/
+    
 }
 
 ion-card ion-item {
     --background: transparent;
-    color: #fcc931;
-    /*color texto*/
+    color: #41483c;
+    
 }
 
 ion-item ion-input {
@@ -42,4 +41,13 @@ ion-button {
 ion-toolbar{
   width: 100px;
   height: 100px;
+}
+
+.center-title{
+    margin: 0 auto;
+    text-align: center;
+}
+
+ion-list{
+    background-color: #ccd8c7;
 }

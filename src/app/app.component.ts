@@ -13,12 +13,12 @@ export class AppComponent {
 
 
   async goToHome() {
-  await this.menu.close(); // o await this.menu.close('mainMenu')
-  // ahora navega
+  await this.menu.close('mainMenu');
   await this.router.navigate(['/home']);
 }
 
   cerrarSesion() {
+    localStorage.setItem('sesion_iniciada','false')
     console.log('Sesión cerrada');
     this.menu.close('mainMenu'); // Cierra el menú
     this.router.navigate(['/login']);

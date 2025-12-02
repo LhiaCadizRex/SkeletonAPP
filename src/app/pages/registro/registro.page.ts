@@ -10,10 +10,11 @@ import { AlertController } from '@ionic/angular';
 })
 export class RegistroPage implements OnInit {
 
-  nombre: any='';
-  apellido: any='';
-  usuario: any='';
-  password: any='';
+  nombre: string='';
+  apellido: string='';
+  usuario: string='';
+  email: string='';
+  password: string='';
 
 
 
@@ -33,4 +34,11 @@ export class RegistroPage implements OnInit {
 
     await alert.present();
   }
+
+  guardar()
+  {if (this.nombre.trim()==='' || this.apellido.trim() === '') {
+        this.presentAlert('Error: nombre y apellido vacios');
+      } else {
+        this.presentAlert('Datos Correctos  usuario:  '+this.nombre);  //
+      }}
 }

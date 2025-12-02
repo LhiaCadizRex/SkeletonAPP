@@ -21,7 +21,7 @@ export class HomePage implements OnInit {
 
   ngOnInit() { 
     // Obtener los parámetros de la URL
-    this.menu.close('mainMenu'); // Cierra el menú
+    this.menu.close('mainMenu'); //Cierra el menú
     this.route.queryParams.subscribe(params => {
       this.email = params['email']; 
     });

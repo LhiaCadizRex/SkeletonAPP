@@ -49,6 +49,10 @@ export class LoginPage {
       return;
     }
 
+    //VALIDACIONES CORRECTAS
+
+    localStorage.setItem('sesion_iniciada','true')
+
     this.navCtrl.navigateForward(['/home'], {
       queryParams: {
         email: this.email
@@ -58,7 +62,11 @@ export class LoginPage {
   }
 
   registro() {
+     this.navCtrl.navigateForward(['/registro']);
 
   }
 
+  reset(){
+
+  }
 }
