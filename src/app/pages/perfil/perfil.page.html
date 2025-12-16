@@ -18,30 +18,30 @@
       <!-- AVATAR  -->
       <div class="avatar-section">
         <img src="../../assets/img/avatar.png" alt="Avatar" class="profile-avatar">
-        <h2>{{ nombre }} {{ apellido }}</h2>
-        <p>@{{ usuario }}</p>
+        <h2>{{ usuario.nombre }} {{ usuario.apellido }}</h2>
+        <p>@{{ usuario.usuario }}</p>
       </div>
 
       <!-- INFO USUARIO -->
       <ion-list>
         <ion-item>
           <ion-label>Nombre: </ion-label>
-          <ion-text>{{ nombre }}</ion-text>
+          <ion-text>{{ usuario.nombre }}</ion-text>
         </ion-item>
         
         <ion-item>
           <ion-label>Apellido: </ion-label>
-          <ion-text>{{ apellido }}</ion-text>
+          <ion-text>{{ usuario.apellido }}</ion-text>
         </ion-item>
         
         <ion-item>
           <ion-label>Usuario: </ion-label>
-          <ion-text>{{ usuario }}</ion-text>
+          <ion-text>{{ usuario.usuario }}</ion-text>
         </ion-item>
         
         <ion-item>
           <ion-label>Mail: </ion-label>
-          <ion-text>{{ email }}</ion-text>
+          <ion-text>{{ usuario.email }}</ion-text>
         </ion-item>
         
       </ion-list>

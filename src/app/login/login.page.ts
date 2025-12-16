@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
+import { Dbservice } from 'src/app/services/dbservice';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,9 @@ export class LoginPage {
 
   email: string = '';
   password: string = '';
-  constructor(private navCtrl: NavController, private alertController: AlertController) { }
+  constructor(private navCtrl: NavController,
+    private alertController: AlertController,
+    private Dbservice: Dbservice) { }
 
   //alerta error
   async mostrarAlerta(mensaje: string) {
@@ -30,7 +33,7 @@ export class LoginPage {
     return emailRegex.test(email);
   }
 
-  login() {
+  async login() {
 
     if (!this.email) {
       this.mostrarAlerta('Completa el campo para continuar.');
@@ -51,22 +54,37 @@ export class LoginPage {
 
     //VALIDACIONES CORRECTAS
 
-    localStorage.setItem('sesion_iniciada','true')
+    /*localStorage.setItem('sesion_iniciada','true')
 
     this.navCtrl.navigateForward(['/home'], {
       queryParams: {
         email: this.email
       }
-    });
+    });*/
+
+
+    const logged = await this.Dbservice.validarUsuario(this.email, this.password);
+    if (logged) {
+      localStorage.setItem('sesion_iniciada', 'true')
+
+      this.navCtrl.navigateForward(['/home'], {
+        queryParams: {
+          email: this.email
+        }
+      });
+    } else {
+      this.mostrarAlerta('Este usuario no existe');
+    }
+
 
   }
 
   registro() {
-     this.navCtrl.navigateForward(['/registro']);
+    this.navCtrl.navigateForward(['/registro']);
 
   }
 
-  reset(){
+  reset() {
 
   }
 }

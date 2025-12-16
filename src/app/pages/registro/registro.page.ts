@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'; 
 import { MenuController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular'; 
+import { Dbservice } from 'src/app/services/dbservice';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.page.html',
@@ -19,7 +20,10 @@ export class RegistroPage implements OnInit {
 
 
 
-  constructor(private alertController: AlertController,private menu: MenuController, private route: ActivatedRoute) { }
+  constructor(private alertController: AlertController,
+              private menu: MenuController,
+              private route: ActivatedRoute,
+              private Dbservice: Dbservice) { }
 
   ngOnInit() {
     this.menu.close('mainMenu');
@@ -35,10 +39,20 @@ export class RegistroPage implements OnInit {
     await alert.present();
   }
 
-  guardar()
+  /*guardar()
   {if (this.nombre.trim()==='' || this.apellido.trim() === '') {
         this.presentAlert('Error: nombre y apellido vacios');
       } else {
         this.presentAlert('Datos Correctos  usuario:  '+this.nombre);  //
-      }}
+      }}*/
+
+  guardarDatos(){
+    this.Dbservice.insertUsuario(this.nombre, this.apellido, this.usuario, this.email, this.password)
+    .then(()=> {
+      this.presentAlert('Datos guardados exitosamente');
+    })
+    .catch(error=> {
+      this.presentAlert('Error al guardar datos: '+error);
+    });
+  }
 }
