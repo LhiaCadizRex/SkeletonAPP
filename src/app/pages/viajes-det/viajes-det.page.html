@@ -8,11 +8,13 @@
   <ion-title class="center-title">Mis Viajes</ion-title>
 </ion-header>
 
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">viajesDet</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content fullscreen="true">
+  <ion-card>
+      <ion-card-content class="empty-content">
+        <ion-icon name="airplane" size="large"></ion-icon>
+        <h3>No hay viajes aún</h3>
+        <p>Crea tu primer viaje para comenzar</p>
+        <ion-button color="dark" shape="round" size="full" routerLink="/viajes-form">Crear Primer Viaje</ion-button>
+      </ion-card-content>
+    </ion-card>
 </ion-content>

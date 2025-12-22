@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular'; 
 import { Dbservice } from 'src/app/services/dbservice';
+
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.page.html',

@@ -12,6 +12,7 @@ import { Dbservice } from 'src/app/services/dbservice';
 export class LoginPage {
 
   email: string = '';
+  usuario: string = '';
   password: string = '';
   constructor(private navCtrl: NavController,
     private alertController: AlertController,
@@ -65,11 +66,14 @@ export class LoginPage {
 
     const logged = await this.Dbservice.validarUsuario(this.email, this.password);
     if (logged) {
+
       localStorage.setItem('sesion_iniciada', 'true')
+      localStorage.setItem('usuario', logged.usuario)
 
       this.navCtrl.navigateForward(['/home'], {
         queryParams: {
-          email: this.email
+          email: this.email,
+          usuario: logged.usuario
         }
       });
     } else {
@@ -84,7 +88,56 @@ export class LoginPage {
 
   }
 
-  reset() {
+  async reset() {
+    const alert = await this.alertController.create({
+      header: 'Recuperar contraseña',
+      inputs: [
+        {
+          name: 'email',
+          type: 'email',
+          placeholder: 'Correo registrado'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel'
+        },
+        {
+          text: 'Enviar',
+          handler: async (data) => {
 
+            if (!data.email) {
+              this.mostrarAlerta('Debes ingresar un correo');
+              return false;
+            }
+
+            if (!this.validarEmail(data.email)) {
+              this.mostrarAlerta('Formato de correo inválido');
+              return false;
+            }
+
+            const existe = await this.Dbservice.reset(data.email);
+
+            if (existe) {
+              this.mostrarAlerta(
+                'Si el correo está registrado, recibirás instrucciones para recuperar tu contraseña.'
+              );
+            } else {
+              this.mostrarAlerta(
+                'Si el correo está registrado, recibirás instrucciones para recuperar tu contraseña.'
+              );
+            }
+
+            return true;
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
+
+
+
 }

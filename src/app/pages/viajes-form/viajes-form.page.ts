@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'; 
-import { MenuController } from '@ionic/angular';  
+import { MenuController } from '@ionic/angular';
+import { Dbservice } from 'src/app/services/dbservice';
+
 @Component({
   selector: 'app-viajes-form',
   templateUrl: './viajes-form.page.html',
@@ -17,7 +19,9 @@ export class ViajesFormPage implements OnInit {
     fechaInicio: new Date().toISOString()
   };
 
-  constructor(private menu: MenuController, private route: ActivatedRoute) { }
+  constructor(private menu: MenuController, 
+              private route: ActivatedRoute,
+              private Dbservice: Dbservice) { }
 
   ngOnInit() {
     this.menu.close('mainMenu');

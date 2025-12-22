@@ -10,6 +10,7 @@ import { MenuController } from '@ionic/angular';
 })
 export class HomePage implements OnInit {
   email: string = ''; 
+  usuario: string='';
   bienvenidos: string='Bienvenid@';
 
   constructor(private menu: MenuController, private route: ActivatedRoute) {}
@@ -22,8 +23,10 @@ export class HomePage implements OnInit {
   ngOnInit() { 
     // Obtener los parámetros de la URL
     this.menu.close('mainMenu'); //Cierra el menú
+    this.usuario = localStorage.getItem('usuario') || '';
     this.route.queryParams.subscribe(params => {
-      this.email = params['email']; 
+      this.email = params['email'];
+      this.usuario=params['usuario']; 
     });
   }
 

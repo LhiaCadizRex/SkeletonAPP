@@ -12,31 +12,32 @@
   <ion-card>
     <ion-card-content>
       <ion-item>
-        <ion-label>Nombre del viaje</ion-label>
+        <ion-label> Nombre del viaje </ion-label>
         <ion-input [(ngModel)]="viaje.nombre" placeholder=" Ej: Camping Cajón del Maipo"></ion-input>
       </ion-item>
       
       <ion-item>
-        <ion-label>Destino</ion-label>
+        <ion-label> Destino </ion-label>
         <ion-input [(ngModel)]="viaje.destino" placeholder=" Ciudad, región"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label>Tipo de viaje</ion-label>
+        <ion-label> Tipo de viaje </ion-label>
         <ion-select [(ngModel)]="viaje.tipo">
           <ion-select-option value="camping">Camping</ion-select-option>
           <ion-select-option value="cabaña">Cabaña</ion-select-option>
           <ion-select-option value="hotel">Hotel</ion-select-option>
+          <ion-select-option value="familiar">Familiar</ion-select-option>
         </ion-select>
       </ion-item>
       
       <ion-item>
-        <ion-label>Presupuesto total</ion-label>
+        <ion-label> Presupuesto total </ion-label>
         <ion-input type="number" [(ngModel)]="viaje.presupuesto" placeholder="$"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label>Fecha inicio</ion-label>
+        <ion-label> Fecha inicio </ion-label>
         <ion-datetime [(ngModel)]="viaje.fechaInicio" displayFormat="DD/MM/YYYY"></ion-datetime>
       </ion-item>
 

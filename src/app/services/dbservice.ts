@@ -93,16 +93,37 @@ export class Dbservice {
   }
 
   //INSERTAR NUEVO VIAJE
-  insertViaje(viaje: any, usuario_id: number) {
+  insertViaje(nombre: string, destino: string, tipo: string, presupuesto: number, fechaInicio: string) {
     return this.db.executeSql(
       `INSERT INTO viajes (nombre, destino, tipo, presupuesto, fechaInicio, usuario_id) 
      VALUES (?, ?, ?, ?, ?, ?)`
-      , [viaje.nombre, viaje.destino, viaje.tipo, viaje.presupuesto, viaje.fechaInicio, usuario_id])
+      , [nombre, destino, tipo, presupuesto, fechaInicio])
       .then(() => this.presentToast('Viaje creado correctamente'))
       .catch(error => this.presentToast('Error al insertar viaje: ' + error));
 
   }
 
+  //VALIDAR NUEVO VIAJE
+  validarViaje(viaje: any, usuario_id: number) {
+    return this.db.executeSql(`SELECT * FROM viajes WHERE viaje = ? AND usuario_id = ?`, [viaje, usuario_id])
+      .then((res) => {
+        if (res.rows.length > 0) {
+          return res.rows.item(0);
+        } else {
+          return null;
+        }
+      })
+      .catch(error => this.presentToast('Error al obtener viaje: ' + error));
+
+  }
+
+  //RESET CONTRASEÑA
+  async reset(email: string): Promise<boolean> {
+  const sql = 'SELECT 1 FROM usuarios WHERE email = ? LIMIT 1';
+  const result = await this.db.executeSql(sql, [email]);
+
+  return result.rows.length > 0;
+}
 
 
 }
